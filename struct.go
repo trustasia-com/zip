@@ -185,7 +185,6 @@ func msDosTimeToTime(dosDate, dosTime uint16) time.Time {
 // The resolution is 2s.
 // See: https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-filetimetodosdatetime
 func timeToMsDosTime(t time.Time) (fDate uint16, fTime uint16) {
-	t = t.UTC()
 	fDate = uint16(t.Day() + int(t.Month())<<5 + (t.Year()-1980)<<9)
 	fTime = uint16(t.Second()/2 + t.Minute()<<5 + t.Hour()<<11)
 	return
